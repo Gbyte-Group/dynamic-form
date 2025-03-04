@@ -7,11 +7,13 @@ export interface IColumn extends ILayout {
   field: string
   type: EComponentType
   label: string
-  value: string
   placeholder: string
   icon: string
+  wrong?: string
+  defaultValue?: string
   required?: boolean
   disabled?: boolean
+  readOnly?: boolean
   focusIcon?: string
   inputModule?: EInputMode
   images?: string[]
@@ -21,4 +23,6 @@ export interface IColumn extends ILayout {
   max?: number
   min?: number
   step?: number
+  format?: string
+  autoComplete?: string
 }

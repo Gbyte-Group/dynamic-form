@@ -1,16 +1,20 @@
 import type { EAlign } from './EAlign'
 
 export interface ILayout {
-  height: number
-  width: number
+  height: string
+  width: string
   align?: EAlign
-  padding?: number[]
-  margin?: number[]
-  gap?: number
+  padding?: string[]
+  margin?: string[]
   backgroundImage?: string
   backgroundColor?: string
-  borderRadius?: number
-  borderWidth?: number
+  borderRadius?: string
+  borderWidth?: string
   borderColor?: string
   borderStyle?: string
+  fontSize?: string
+  fontWeight?: string
+  fontColor?: string
+  fontStyle?: string
+  lineHeight?: string
 }
