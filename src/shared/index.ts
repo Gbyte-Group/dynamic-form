@@ -1,6 +1,6 @@
-import { EAlign, type IColumn } from '../types'
+import type { IRow, ILayout } from '../types'
 
-export const alignMap: Record<EAlign, string> = {
+export const alignMap: Record<string, string> = {
   around: 'space-around',
   between: 'space-between',
   center: 'center',
@@ -11,9 +11,9 @@ export const alignMap: Record<EAlign, string> = {
   start: 'flex-start',
 }
 
-export const baseStyle = (options: IColumn): Record<string, string> => {
-  return {
-    '--gdf_component_align': alignMap[options.align || EAlign.LEFT],
+export const baseStyle = (options: ILayout): Record<string, string> => {
+  const style = {
+    '--gdf_component_align': options.align,
     '--gdf_component_border-width': options.borderWidth,
     '--gdf_component_border-color': options.borderColor,
     '--gdf_component_border-radius': options.borderRadius,
@@ -26,8 +26,36 @@ export const baseStyle = (options: IColumn): Record<string, string> => {
     '--gdf_component_height': options.height,
     '--gdf_component_font-size': options.fontSize,
     '--gdf_component_font-weight': options.fontWeight,
-    '--gdf_component_font-color': options.fontColor,
+    '--gdf_component_font-color': options.fontColor
   } as Record<string, string>
+
+  const result = {} as Record<string, string>
+
+  for (const key in style) {
+    if (style[key] !== undefined) {
+      result[key] = style[key]
+    }
+  }
+
+  return result
+}
+
+export const rowStyle = (options: IRow): Record<string, string> => {
+  const result = baseStyle(options)
+
+  if (options.horizontal !== undefined) {
+    result['--gdf_component_horizontal'] = alignMap[options.horizontal]
+  }
+
+  if (options.vertical !== undefined) {
+    result['--gdf_component_vertical'] = alignMap[options.vertical]
+  }
+
+  if (options.gap !== undefined) {
+    result['--gdf_component_gap'] = options.gap
+  }
+
+  return result
 }
 
 export const customStyle = (data: Record<string, string | undefined>) => {

@@ -1,6 +1,5 @@
 import '../styles/index.css'
 import { type IColumn, EInputMode } from '../types'
-import { baseStyle } from '../shared'
 import { useState } from 'react'
 
 export interface InputProps extends IColumn {}
@@ -9,10 +8,10 @@ export const InputModeMap: Record<EInputMode, React.HTMLAttributes<HTMLInputElem
   text: 'text',
   email: 'email',
   password: 'text',
+  number: 'numeric',
 }
 
 export default function Input(props: InputProps) {
-  const vars = baseStyle(props)
   const isPassword = props?.inputModule === EInputMode.PASSWORD
   const [value, updateValue] = useState<string>('')
   const [valid, updateValid] = useState<boolean>(true)
@@ -30,8 +29,8 @@ export default function Input(props: InputProps) {
   }
 
   return (
-    <div className='gdf_column'>
-      <label className="gdf_input_component_container gdf_base_component_container" style={vars}>
+    <>
+      <label className="gdf_input_component_container gdf_base_component_container">
         {
           props.icon && (
             <div className='gdf_input_component_icon gdf_base_icon_blur'>
@@ -68,6 +67,6 @@ export default function Input(props: InputProps) {
         />
       </label>
       <span className='gdf_base_wrong'> {valid ? '' : props.wrong} </span>
-    </div>
+    </>
   )
 }

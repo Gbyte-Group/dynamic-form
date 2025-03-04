@@ -2,6 +2,8 @@
 
 :root {
   --gdf_component_align: left;
+  --gdf_component_horizontal: center;
+  --gdf_component_vertical: center;
   --gdf_component_padding: 0 0 0 0;
   --gdf_component_margin: 0 0 0 0;
   --gdf_component_gap: 0;
@@ -21,12 +23,40 @@
   --gdf_component_input_placeholder_opacity: .5;
 }
 
-/* .gdf_column {} */
+
+.gdf_base_form,
+.gdf_base_row,
+.gdf_base_col {
+  display: flex;
+  flex-flow: nowrap row;
+  height: var(--gdf_component_height, 2rem);
+  width: var(--gdf_component_width, 100%);
+  border-width: var(--gdf_component_border-width, 0px);
+  border-color: var(--gdf_component_border-color, #000000);
+  border-style: var(--gdf_component_border-style, solid);
+  border-radius: var(--gdf_component_border-radius, 0px);
+  padding: var(--gdf_component_padding, 0 0 0 0);
+  margin: var(--gdf_component_margin, 0 0 0 0);
+  background-color: var(--gdf_component_background-color, #ffffff);
+  background-image: var(--gdf_component_background-image, none);
+  font-size: var(--gdf_component_font-size, 1rem);
+  font-weight: var(--gdf_component_font-weight, normal);
+  font-style: var(--gdf_component_font-style, normal);
+  font-family: var(--gdf_component_font-family, sans-serif);
+  color: var(--gdf_component_font-color, #000000);
+  text-align: var(--gdf_component_align, left);
+  justify-content: var(--gdf_component_horizontal, space-between);
+  align-items: var(--gdf_component_vertical, center);
+  gap: var(--gdf_component_gap, 0);
+}
+
+.gdf_base_form {
+  flex-flow: column nowrap;
+}
 
 .gdf_base_component_container {
   display: flex;
   flex-flow: nowrap row;
-  align-items: var(--gdf_component_align, space-between);
   padding: var(--gdf_component_padding, 0 0 0 0);
   margin: var(--gdf_component_margin, 0 0 0 0);
 }
@@ -51,11 +81,10 @@
 .gdf_input_component_container {
   display: flex;
   flex-flow: nowrap row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: var(--gdf_component_horizontal, space-between);
+  align-items: var(--gdf_component_vertical, center);
   height: var(--gdf_component_height, 2rem);
-  width: var(--gdf_component_width, auto);
-  border: var(--gdf_component_border-width, 1px) var(--gdf_component_border-style, solid) var(--gdf_component_border-color, #000000);
+  width: 100%;
   border-radius: var(--gdf_component_border-radius, 0px);
   padding: var(--gdf_component_padding, 0 0 0 0);
   margin: var(--gdf_component_margin, 0 0 0 0);
@@ -86,6 +115,7 @@
   font-style: var(--gdf_component_font-style, normal);
   font-family: var(--gdf_component_font-family, sans-serif);
   color: var(--gdf_component_font-color, #000000);
+  text-align: var(--gdf_component_align, left);
 }
 
 .gdf_input_component_input::placeholder {

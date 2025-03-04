@@ -4,11 +4,12 @@ import type { EComponentType } from './EComponentType'
 import type { EInputMode } from './EInputMode'
 
 export interface IColumn extends ILayout {
+  id: string
   field: string
   type: EComponentType
   label: string
   placeholder: string
-  icon: string
+  icon?: string
   wrong?: string
   defaultValue?: string
   required?: boolean
