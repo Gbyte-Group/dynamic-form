@@ -1,4 +1,4 @@
-import type { IRow, ILayout } from '../types'
+import type { IRow, ILayout, IForm } from '../types'
 
 export const alignMap: Record<string, string> = {
   around: 'space-around',
@@ -11,22 +11,22 @@ export const alignMap: Record<string, string> = {
   start: 'flex-start',
 }
 
-export const baseStyle = (options: ILayout): Record<string, string> => {
+export const baseStyle = (options: ILayout, join = 'component'): Record<string, string> => {
   const style = {
-    '--gdf_component_align': options.align,
-    '--gdf_component_border-width': options.borderWidth,
-    '--gdf_component_border-color': options.borderColor,
-    '--gdf_component_border-radius': options.borderRadius,
-    '--gdf_component_border-style': options.borderStyle,
-    '--gdf_component_background-color': options.backgroundColor,
-    '--gdf_component_background-image': options.backgroundImage,
-    '--gdf_component_padding': options.padding?.join(' '),
-    '--gdf_component_margin': options.margin?.join(' '),
-    '--gdf_component_width': options.width,
-    '--gdf_component_height': options.height,
-    '--gdf_component_font-size': options.fontSize,
-    '--gdf_component_font-weight': options.fontWeight,
-    '--gdf_component_font-color': options.fontColor
+    [`--gdf_${join}_align`]: options.align,
+    [`--gdf_${join}_border-width`]: options.borderWidth,
+    [`--gdf_${join}_border-color`]: options.borderColor,
+    [`--gdf_${join}_border-radius`]: options.borderRadius,
+    [`--gdf_${join}_border-style`]: options.borderStyle,
+    [`--gdf_${join}_background-color`]: options.backgroundColor,
+    [`--gdf_${join}_background-image`]: options.backgroundImage,
+    [`--gdf_${join}_padding`]: options.padding?.join(' '),
+    [`--gdf_${join}_margin`]: options.margin?.join(' '),
+    [`--gdf_${join}_width`]: options.width,
+    [`--gdf_${join}_height`]: options.height,
+    [`--gdf_${join}_font-size`]: options.fontSize,
+    [`--gdf_${join}_font-weight`]: options.fontWeight,
+    [`--gdf_${join}_font-color`]: options.fontColor
   } as Record<string, string>
 
   const result = {} as Record<string, string>
@@ -41,18 +41,36 @@ export const baseStyle = (options: ILayout): Record<string, string> => {
 }
 
 export const rowStyle = (options: IRow): Record<string, string> => {
-  const result = baseStyle(options)
+  const result = baseStyle(options, 'row')
 
   if (options.horizontal !== undefined) {
-    result['--gdf_component_horizontal'] = alignMap[options.horizontal]
+    result['--gdf_row_horizontal'] = alignMap[options.horizontal]
   }
 
   if (options.vertical !== undefined) {
-    result['--gdf_component_vertical'] = alignMap[options.vertical]
+    result['--gdf_row_vertical'] = alignMap[options.vertical]
   }
 
   if (options.gap !== undefined) {
-    result['--gdf_component_gap'] = options.gap
+    result['--gdf_row_gap'] = options.gap
+  }
+
+  return result
+}
+
+export const formStyle = (options: IForm): Record<string, string> => {
+  const result = baseStyle(options, 'form')
+
+  if (options.horizontal !== undefined) {
+    result['--gdf_form_horizontal'] = alignMap[options.horizontal]
+  }
+
+  if (options.vertical !== undefined) {
+    result['--gdf_form_vertical'] = alignMap[options.vertical]
+  }
+
+  if (options.gap !== undefined) {
+    result['--gdf_form_gap'] = options.gap
   }
 
   return result

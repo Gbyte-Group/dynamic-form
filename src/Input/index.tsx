@@ -1,4 +1,4 @@
-import '../styles/index.css'
+import './index.css'
 import { type IColumn, EInputMode } from '../types'
 import { useState } from 'react'
 
@@ -9,6 +9,13 @@ export const InputModeMap: Record<EInputMode, React.HTMLAttributes<HTMLInputElem
   email: 'email',
   password: 'text',
   number: 'numeric',
+}
+
+export const InputTypeMap: Record<EInputMode, React.InputHTMLAttributes<HTMLInputElement>['type']> = {
+  text: 'text',
+  email: 'email',
+  password: 'password',
+  number: 'number',
 }
 
 export default function Input(props: InputProps) {
@@ -60,7 +67,7 @@ export default function Input(props: InputProps) {
           placeholder={props.placeholder}
           autoComplete={props.autoComplete}
           defaultValue={props.defaultValue}
-          type={isPassword ? 'password' : 'text'}
+          type={InputTypeMap[props.type]}
           inputMode={InputModeMap[props?.inputModule ?? EInputMode.TEXT]}
           className='gdf_input_component_input gdf_base_component_input'
           onChange={e => onChange(e.target.value)}

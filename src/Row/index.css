@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+.gdf_base_row{
+  --gdf_row_align: left;
+  --gdf_row_horizontal: center;
+  --gdf_row_vertical: center;
+  --gdf_row_padding: 0 0 0 0;
+  --gdf_row_margin: 0 0 0 0;
+  --gdf_row_gap: 0;
+  --gdf_row_background-image: initial;
+  --gdf_row_background-color: initial;
+  --gdf_row_border-width: initial;
+  --gdf_row_border-color: initial;
+  --gdf_row_border-radius: initial;
+  --gdf_row_border-style: initial;
+  --gdf_row_height: auto;
+  --gdf_row_width: auto;
+  --gdf_row_font-size: 1rem;
+  --gdf_row_font-weight: normal;
+  --gdf_row_font-style: normal;
+  --gdf_row_font-family: sans-serif;
+  --gdf_row_font-color: #000000;
+  --gdf_row_input_placeholder_opacity: .5;
+
+  display: flex;
+  flex-flow: nowrap row;
+  height: var(--gdf_row_height, 2rem);
+  width: var(--gdf_row_width, 100%);
+  border-width: var(--gdf_row_border-width, 0px);
+  border-color: var(--gdf_row_border-color, #000000);
+  border-style: var(--gdf_row_border-style, solid);
+  border-radius: var(--gdf_row_border-radius, 0px);
+  padding: var(--gdf_row_padding, 0 0 0 0);
+  margin: var(--gdf_row_margin, 0 0 0 0);
+  background-color: var(--gdf_row_background-color, transparent);
+  background-image: var(--gdf_row_background-image, none);
+  font-size: var(--gdf_row_font-size, 1rem);
+  font-weight: var(--gdf_row_font-weight, normal);
+  font-style: var(--gdf_row_font-style, normal);
+  font-family: var(--gdf_row_font-family, sans-serif);
+  color: var(--gdf_row_font-color, #000000);
+  text-align: var(--gdf_row_align, left);
+  justify-content: var(--gdf_row_horizontal, space-between);
+  align-items: var(--gdf_row_vertical, center);
+  gap: var(--gdf_row_gap, 0);
+}

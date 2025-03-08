@@ -24,15 +24,13 @@ export const FormStory: Story = {
     onSubmit(form, submitter) {
       const formData = new FormData(form)
       const data = Object.fromEntries(formData.entries())
-      console.log('submit', data)
+      console.log('submit', data, submitter)
     },
     onInput(el) {
       console.log('input', el.value)
     },
     width: '42rem',
     borderRadius: '.5rem',
-    padding: ['.25rem'],
-    borderWidth: '1px',
     rows: [
       {
         id: 'row-1',
@@ -44,13 +42,19 @@ export const FormStory: Story = {
         columns: [
           {
             ...account.args as IColumn,
-            width: '30%',
-            height: '2rem'
+            width: '40%',
+            height: '2rem',
+            borderWidth: '1px',
+            borderRadius: '.25rem',
+            padding: ['.25rem'],
           },
           {
             ...password.args as IColumn,
-            width: '50%',
-            height: '2rem'
+            width: '40%',
+            height: '2rem',
+            borderWidth: '1px',
+            borderRadius: '.25rem',
+            padding: ['.25rem'],
           }
         ]
       },
@@ -62,7 +66,10 @@ export const FormStory: Story = {
         columns: [
           {
             ...password.args as IColumn,
-            height: '2rem'
+            height: '2rem',
+            borderWidth: '1px',
+            borderRadius: '.25rem',
+            padding: ['.25rem'],
           }
         ]
       },
@@ -74,7 +81,10 @@ export const FormStory: Story = {
         columns: [
           {
             ...email.args as IColumn,
-            height: '2rem'
+            height: '2rem',
+            borderWidth: '1px',
+            borderRadius: '.25rem',
+            padding: ['.25rem'],
           }
         ]
       }

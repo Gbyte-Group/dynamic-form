@@ -1,7 +1,8 @@
+import './index.css'
 import { useEffect, useRef } from 'react'
 import Row from '../Row'
 import type { IForm } from '../types'
-import { baseStyle } from '../shared'
+import { formStyle } from '../shared'
 
 export interface FormProps extends IForm {
   onSubmit: (form: HTMLFormElement, submitter: SubmitEvent['submitter']) => void
@@ -13,7 +14,7 @@ export default function Form(props: FormProps) {
 
   const form = useRef<HTMLFormElement>(null)
 
-  const vars = baseStyle(props)
+  const vars = formStyle(props)
 
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault()

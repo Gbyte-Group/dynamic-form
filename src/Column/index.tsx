@@ -1,3 +1,4 @@
+import './index.css'
 import type { IColumn, EComponentType } from '../types'
 import { baseStyle } from '../shared'
 

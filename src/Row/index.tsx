@@ -1,3 +1,4 @@
+import './index.css'
 import Column from '../Column'
 import { rowStyle } from '../shared'
 import type { IRow } from '../types'
