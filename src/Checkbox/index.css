@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.gdf_component_checkbox{
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.gdf_component_checkbox>input[type="checkbox"] {
+  display: none;
+}
+
+.gdf_component_checkbox>.gdf_component_checkbox_unchecked,
+.gdf_component_checkbox>.gdf_component_checkbox_checked {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: .125rem;
+  border: 1px solid black;
+  margin-right: .25rem;
+}
+
+.gdf_component_checkbox>.gdf_component_checkbox_checked{
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: center;
+  align-items: center;
+}
+
+.gdf_component_checkbox>input[type="checkbox"]:not(:checked) ~ .gdf_component_checkbox_checked {
+  display: none;
+}
+
+.gdf_component_checkbox>input[type="checkbox"]:checked ~ .gdf_component_checkbox_unchecked {
+  display: none;
+}
