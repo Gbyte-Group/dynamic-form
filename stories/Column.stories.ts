@@ -20,6 +20,7 @@ type Story = StoryObj<typeof meta>
 
 export const Account: Story = {
   args: {
+    id: 'column-1',
     borderWidth: 1,
     borderColor: 'black',
     borderRadius: 4,
@@ -62,6 +63,7 @@ export const Account: Story = {
 
 export const Password: Story = {
   args: {
+    id: 'column-2',
     borderWidth: 1,
     borderColor: 'black',
     borderRadius: 4,
@@ -97,6 +99,48 @@ export const Password: Story = {
       props: {
         alt: 'password icon',
         link: 'https://google.com/search?q=password',
+        icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjODM5MkIxIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMHMxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMm0xIDE3aC0ydi0yaDJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxYzAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjUiLz48L3N2Zz4=',
+        height: 20,
+        width: 20
+      }
+    }
+  }
+}
+
+export const Email: Story = {
+  args: {
+    id: 'email-1',
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 4,
+    height: 30,
+    width: 180,
+    paddingX: 2,
+    prepend: {
+      id: 'email-1',
+      type: 'icon',
+      props: {
+        alt: 'email icon',
+        icon: 'data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0nMjAnIGhlaWdodD0nMjAnIHZpZXdCb3g9JzAgMCAyMCAyMCcgZmlsbD0nbm9uZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMi41IDUuNDc4MDNDMi41IDQuNjQ5NiAzLjE3MTU3IDMuOTc4MDMgNCAzLjk3ODAzSDE2QzE2LjgyODQgMy45NzgwMyAxNy41IDQuNjQ5NiAxNy41IDUuNDc4MDNWMTQuMTQ0N0MxNy41IDE0Ljk3MzEgMTYuODI4NCAxNS42NDQ3IDE2IDE1LjY0NDdINEMzLjE3MTU3IDE1LjY0NDcgMi41IDE0Ljk3MzEgMi41IDE0LjE0NDdWNS40NzgwM1onIHN0cm9rZT0nIzgzOTJCMScvPjxwYXRoIGQ9J00xNi45MDY4IDMuOTcyMjlMMTEuMzE0IDguOTg0NTlDMTAuNTU0NCA5LjY2NTMxIDkuNDA5MSA5LjY1OTQ3IDguNjU2NCA4Ljk3MTA2TDMuMTQwNjIgMy45MjYzOScgc3Ryb2tlPScjODM5MkIxJy8+PC9zdmc+IA==',
+        height: 20,
+        width: 20
+      }
+    },
+    component: {
+      id: 'email-2',
+      type: 'input',
+      props: {
+        name: 'email',
+        placeholder: 'Please input you email',
+        mode: 'email'
+      }
+    },
+    append: {
+      id: 'email-3',
+      type: 'icon',
+      props: {
+        alt: 'email icon',
+        link: 'https://google.com/search?q=email',
         icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjODM5MkIxIiBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMHMxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMm0xIDE3aC0ydi0yaDJ6bTIuMDctNy43NWwtLjkuOTJDMTMuNDUgMTIuOSAxMyAxMy41IDEzIDE1aC0ydi0uNWMwLTEuMS40NS0yLjEgMS4xNy0yLjgzbDEuMjQtMS4yNmMuMzctLjM2LjU5LS44Ni41OS0xLjQxYzAtMS4xLS45LTItMi0ycy0yIC45LTIgMkg4YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDRjMCAuODgtLjM2IDEuNjgtLjkzIDIuMjUiLz48L3N2Zz4=',
         height: 20,
         width: 20

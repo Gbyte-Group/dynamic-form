@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import Empty from '../Empty'
 
 export interface ColumnProps {
+  id: string
   width: number
   height: number
   borderColor?: string

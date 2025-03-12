@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.gdf_component_form{
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(var(--gdf_component_form_gap, 0) * 1px);
+
+}
