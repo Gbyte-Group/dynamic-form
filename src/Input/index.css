@@ -3,6 +3,7 @@
 .gdf_component_input{
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .gdf_component_input>input{

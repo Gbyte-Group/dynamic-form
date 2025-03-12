@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.gdf_component_icon{
+  width: calc(var(--gdf_component_icon-width, 20) * 1px);
+  height: calc(var(--gdf_component_icon-height, 20) * 1px);
+  aspect-ratio: 1/1;
+}
+
+.gdf_component_icon>img{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}

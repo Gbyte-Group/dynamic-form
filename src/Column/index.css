@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+.gdf_component_column {
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(var(--gdf_component_width, 100) * 1px);
+  height: calc(var(--gdf_component_height, 100) * 1px);
+  border-style: solid;
+  border-color: var(--gdf_component_border-color, transparent);
+  border-width: calc(var(--gdf_component_border-width, 0) * 1px);
+  border-radius: calc(var(--gdf_component_border-radius, 0) * 1px);
+  background-color: var(--gdf_component_background-color, transparent);
+  background-image: var(--gdf_component_background-image, none);
+  font-size: calc(var(--gdf_component_font-size, 16) * 1px);
+  color: var(--gdf_component_font-color, black);
+  padding: calc(var(--gdf_component_padding-y, 0) * 1px) calc(var(--gdf_component_padding-x, 0) * 1px);
+  margin: calc(var(--gdf_component_margin-y, 0) * 1px) calc(var(--gdf_component_margin-x, 0) * 1px);
+  gap: calc(var(--gdf_component_gap, 0) * 1px),
+}
+
+.gdf_component_column:has(input:focus){
+  border-color: var(--gdf_component_focus_border-color, var(--gdf_component_border-color, transparent));
+  border-width: calc(var(--gdf_component_focus_border-width, var(--gdf_component_border-width, 0)) * 1px);
+  border-radius: calc(var(--gdf_component_focus_border-radius, var(--gdf_component_border-radius, 0)) * 1px);
+  background-color: var(--gdf_component_focus_background-color, var(--gdf_component_background-color, transparent));
+  background-image: var(--gdf_component_focus_background-image, var(--gdf_component_background-image, none));
+  font-size: calc(var(--gdf_component_focus_font-size, var(--gdf_component_font-size, 16)) * 1px);
+  color: var(--gdf_component_focus_font-color, var(--gdf_component_font-color, black));
+  padding: calc(var(--gdf_component_focus_padding-y, var(--gdf_component_padding-y, 0)) * 1px) calc(var(--gdf_component_focus_padding-x, var(--gdf_component_padding-x, 0)) * 1px);
+  margin: calc(var(--gdf_component_focus_margin-y, var(--gdf_component_margin-y, 0)) * 1px) calc(var(--gdf_component_focus_margin-x, var(--gdf_component_margin-x, 0)) * 1px);
+  gap: calc(var(--gdf_component_focus_gap, var(--gdf_component_gap, 0)) * 1px);
+}
