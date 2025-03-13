@@ -22,7 +22,7 @@ export interface ColumnProps {
   prepend?: ComponentType | ComponentType[],
   append?: ComponentType | ComponentType[],
   component: ComponentType | ComponentType[],
-  focus: Partial<Omit<ColumnProps, 'focus' | 'prepend' | 'component' | 'append'>>
+  focus?: Partial<Omit<ColumnProps, 'focus' | 'prepend' | 'component' | 'append'>>
 }
 
 const getComponentUtils = (props?: ComponentType) => {
