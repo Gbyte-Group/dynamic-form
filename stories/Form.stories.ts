@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Form from '../src/Form'
-import { AccountRow, PasswordRow } from './Row.stories'
+import { AccountRow, LoginRow, PasswordRow } from './Row.stories'
 import type { RowProps } from '../src/Row'
 
 const meta: Meta<typeof Form> = {
@@ -25,7 +25,8 @@ export const LoginForm: Story = {
     gap: 10,
     rows: [
       AccountRow.args as RowProps,
-      PasswordRow.args as RowProps
+      PasswordRow.args as RowProps,
+      LoginRow.args as RowProps
     ]
   }
 }

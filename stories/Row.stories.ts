@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Row from '../src/Row'
-import { Account, Email, Password } from './Column.stories'
+import { Account, Email, NotLogin, Password } from './Column.stories'
 import type { ColumnProps } from '../src/Column'
 
 const meta: Meta<typeof Row> = {
@@ -38,5 +38,15 @@ export const PasswordRow: Story = {
     columns: [
       Password.args as ColumnProps
     ]
+  }
+}
+
+export const LoginRow: Story = {
+  args: {
+    id: 'login-row',
+    gap: 10,
+    columns: [
+      NotLogin.args as ColumnProps
+    ],
   }
 }

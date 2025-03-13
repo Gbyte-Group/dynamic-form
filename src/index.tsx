@@ -8,7 +8,7 @@ export * as types from './types'
 
 export type { CheckboxProps, ColumnProps, FormProps, IconProps, InputProps, RowProps }
 
-export default {
+export {
   Checkbox,
   Column,
   Form,

@@ -148,3 +148,19 @@ export const Email: Story = {
     }
   }
 }
+
+export const NotLogin: Story = {
+  args: {
+    width: 200,
+    height: 30,
+    component: {
+      id: 'not-login-1',
+      type: 'checkbox',
+      props: {
+        name: 'not-login',
+        defaultChecked: true,
+        description: 'I not need login'
+      }
+    }
+  }
+}
