@@ -1,3 +1,4 @@
+import button from './Button'
 import checkbox from './Checkbox'
 import icon from './Icon'
 import input from './Input'
@@ -13,7 +14,8 @@ type ComponentStruct<
 export const Components = {
   checkbox,
   input,
-  icon
+  icon,
+  button
 }
 
 export type ComponentType = ComponentStruct<typeof Components>

@@ -34,6 +34,8 @@ const getComponentUtils = (props?: ComponentType) => {
         return <Components.input {...props.props} />
       case 'icon':
         return <Components.icon {...props.props} />
+      case 'button':
+        return <Components.button {...props.props} />
       default: {
         const _: never = props
       }

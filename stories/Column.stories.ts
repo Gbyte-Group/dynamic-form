@@ -151,10 +151,11 @@ export const Email: Story = {
 
 export const NotLogin: Story = {
   args: {
+    id: 'not-login-1',
     width: 200,
     height: 30,
     component: {
-      id: 'not-login-1',
+      id: 'not-login-2',
       type: 'checkbox',
       props: {
         name: 'not-login',

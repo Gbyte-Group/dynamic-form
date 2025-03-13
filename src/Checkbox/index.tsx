@@ -14,6 +14,7 @@ export default function Checkbox(props: CheckboxProps) {
         required={props.required}
         disabled={props.disabled}
         defaultChecked={props.defaultChecked}
+        value={props.defaultValue}
       />
       <span className='gdf_component_checkbox_unchecked' />
       <span className='gdf_component_checkbox_checked' >
