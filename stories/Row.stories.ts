@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Row from '../src/Row'
 import { Account, Email, NotLogin, Password } from './Column.stories'
 import type { ColumnProps } from '../src/Column'
+import { Platform } from './Select.stories'
+import type { SelectProps } from '../src/Select'
 
 const meta: Meta<typeof Row> = {
   title: 'Example/Row',
@@ -36,7 +38,23 @@ export const PasswordRow: Story = {
     id: 'password-row',
     gap: 10,
     columns: [
-      Password.args as ColumnProps
+      Password.args as ColumnProps,
+      {
+        id: 'platform-col',
+        width: 175,
+        height: 30,
+        paddingX: 5,
+        verticalAlign: 'start',
+        backgroundColor: 'white',
+        borderRadius: 4,
+        borderWidth: 1,
+        borderColor: 'black',
+        component: {
+          id: 'platform-select',
+          type: 'select',
+          props: Platform.args as SelectProps
+        }
+      }
     ]
   }
 }

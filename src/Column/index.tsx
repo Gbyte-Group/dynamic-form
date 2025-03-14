@@ -2,18 +2,15 @@ import './index.css'
 import { type ComponentType, Components } from '../Components'
 import { Fragment } from 'react'
 import Empty from '../Empty'
+import type { IColumn } from '../types'
+import { transformAlign } from '../utils'
 
-export interface ColumnProps {
+export interface ColumnProps extends IColumn {
   id: string
   width: number
   height: number
-  borderColor?: string
-  borderWidth?: number
-  borderRadius?: number
   fontColor?: string
   fontSize?: number
-  backgroundColor?: string
-  backgroundImage?: string
   paddingY?: number
   paddingX?: number
   marginY?: number
@@ -36,6 +33,8 @@ const getComponentUtils = (props?: ComponentType) => {
         return <Components.icon {...props.props} />
       case 'button':
         return <Components.button {...props.props} />
+      case 'select':
+        return <Components.select {...props.props} />
       default: {
         const _: never = props
       }
@@ -93,6 +92,9 @@ export default function Column(props: ColumnProps) {
     '--gdf_component_margin-y': props.marginY,
     '--gdf_component_margin-x': props.marginX,
     '--gdf_component_gap': props.gap,
+    '--gdf_col_align-items': transformAlign(props.verticalAlign),
+    '--gdf_col_justify-content': transformAlign(props.horizontalAlign),
+    '--gdf_col_flex-direction': props.direction,
     ...focusVars
   } as React.CSSProperties
 

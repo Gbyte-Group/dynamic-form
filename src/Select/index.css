@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.gdf_component_select{
+  width: 100%;
+  display: flex;
+  flex-flow: nowrap column;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+  z-index: 99999;
+  position: relative;
+  user-select: none;
+}
+
+.gdf_component_select_item {
+  display: inline-block;
+  width: 100%;
+  padding: .25rem;
+}
+
+.gdf_component_select_item:hover{
+  cursor: pointer;
+}
+
+.gdf_component_select_summary{
+  padding: .25rem 0;
+  height: inherit;
+}
+
+.gdf_component_select_list{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  background-color: inherit;
+  top: calc(100% + .25rem);
+}

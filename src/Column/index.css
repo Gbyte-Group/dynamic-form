@@ -2,9 +2,9 @@
 
 .gdf_component_column {
   display: flex;
-  flex-flow: nowrap row;
-  justify-content: flex-start;
-  align-items: center;
+  flex-flow: nowrap var(--gdf_col_direction, row);
+  justify-content: var(--gdf_col_justify-content, flex-start);
+  align-items: var(--gdf_col_align-items, center);
   width: calc(var(--gdf_component_width, 100) * 1px);
   height: calc(var(--gdf_component_height, 100) * 1px);
   border-style: solid;
