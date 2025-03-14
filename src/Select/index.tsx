@@ -34,7 +34,7 @@ export default function Select(props: SelectProps) {
         <input type="hidden" name={props.name} value={selected.value} />
         {selected.label}
       </div>
-      <div className='gdf_component_select_list' style={{ height: open ? '0' : 'auto', opacity: open ? 0 : 100 }} >
+      <div className='gdf_component_select_list' style={{ height: open ? 'auto' : '0', opacity: open ? 100 : 0 }} >
         {
           props.options.map((item, index) => {
             return (

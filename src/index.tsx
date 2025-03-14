@@ -4,9 +4,11 @@ import Form, { type FormProps } from './Form'
 import Icon, { type IconProps } from './Icon'
 import Input, { type InputProps } from './Input'
 import Row, { type RowProps } from './Row'
+import { useRegisterComponent } from './hooks/useRegisterComponent'
+import FormProvider, { type registerComponent, type ComponentType } from './FormProvider'
 export * as types from './types'
 
-export type { CheckboxProps, ColumnProps, FormProps, IconProps, InputProps, RowProps }
+export type { CheckboxProps, ColumnProps, FormProps, IconProps, InputProps, RowProps, registerComponent, ComponentType }
 
 export {
   Checkbox,
@@ -15,4 +17,6 @@ export {
   Icon,
   Input,
   Row,
+  FormProvider,
+  useRegisterComponent
 }

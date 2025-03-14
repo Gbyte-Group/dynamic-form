@@ -1,6 +1,6 @@
 import './index.css'
-import { type ComponentType, Components } from '../Components'
-import { Fragment } from 'react'
+import { type ComponentType, formProviderContext } from '../FormProvider'
+import { Fragment, useContext } from 'react'
 import Empty from '../Empty'
 import type { IColumn } from '../types'
 import { transformAlign } from '../utils'
@@ -22,31 +22,32 @@ export interface ColumnProps extends IColumn {
   focus?: Partial<Omit<ColumnProps, 'focus' | 'prepend' | 'component' | 'append'>>
 }
 
-const getComponentUtils = (props?: ComponentType) => {
-  if (props?.type) {
-    switch (props.type) {
-      case 'checkbox':
-        return <Components.checkbox {...props.props} />
-      case 'input':
-        return <Components.input {...props.props} />
-      case 'icon':
-        return <Components.icon {...props.props} />
-      case 'button':
-        return <Components.button {...props.props} />
-      case 'select':
-        return <Components.select {...props.props} />
-      default: {
-        const _: never = props
+const Components = (props?: { component: ComponentType | ComponentType[] | undefined }) => {
+  const { components } = useContext(formProviderContext)
+
+  const getComponentUtils = (props?: ComponentType) => {
+    if (props?.type) {
+      switch (props.type) {
+        case 'checkbox':
+          return <components.checkbox {...props.props} />
+        case 'input':
+          return <components.input {...props.props} />
+        case 'icon':
+          return <components.icon {...props.props} />
+        case 'button':
+          return <components.button {...props.props} />
+        case 'select':
+          return <components.select {...props.props} />
+        default: {
+          const _: never = props
+        }
       }
     }
-
+    return <Empty />
   }
-  return <Empty />
-}
 
-const getComponent = (props?: ComponentType | ComponentType[]) => {
-  if (props) {
-    return (Array.isArray(props) ? props : [props]).map(props => (
+  if (props?.component) {
+    return (Array.isArray(props.component) ? props.component : [props.component]).map(props => (
       <Fragment key={props.id}>
         {getComponentUtils(props)}
       </Fragment>
@@ -103,9 +104,9 @@ export default function Column(props: ColumnProps) {
       className='gdf_component_column'
       style={vars}
     >
-      {getComponent(props.prepend)}
-      {getComponent(props.component)}
-      {getComponent(props.append)}
+      <Components component={props.prepend} />
+      <Components component={props.component} />
+      <Components component={props.append} />
     </div>
   )
 }
