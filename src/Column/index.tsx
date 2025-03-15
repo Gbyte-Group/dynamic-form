@@ -1,4 +1,3 @@
-import './index.css'
 import { type ComponentType, formProviderContext } from '../FormProvider'
 import { Fragment, useContext } from 'react'
 import Empty from '../Empty'

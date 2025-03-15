@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Input from '../src/Input'
+import '../src/index.css'
 
 const meta: Meta<typeof Input> = {
   title: 'Example/Input',

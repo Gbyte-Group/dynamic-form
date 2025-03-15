@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Form from '../src/Form'
 import { AccountRow, LoginRow, PasswordRow } from './Row.stories'
 import type { RowProps } from '../src/Row'
+import '../src/index.css'
 
 const meta: Meta<typeof Form> = {
   title: 'Example/Form',

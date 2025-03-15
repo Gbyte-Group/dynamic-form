@@ -1,5 +1,4 @@
 import type { IField } from '../types'
-import './index.css'
 
 export interface InputProps extends IField {
   mode: 'email' | 'text' | 'number' | 'password' | 'tel'

@@ -1,7 +1,6 @@
 import Column, { type ColumnProps } from '../Column'
 import type { ILayout } from '../types'
 import { transformAlign } from '../utils'
-import './index.css'
 
 export interface RowProps extends ILayout {
   id: string

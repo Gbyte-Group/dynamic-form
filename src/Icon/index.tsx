@@ -1,5 +1,3 @@
-import './index.css'
-
 export interface IconProps {
   icon: string
   alt: string

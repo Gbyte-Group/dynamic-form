@@ -1,5 +1,3 @@
-import './index.css'
-
 export interface ButtonProps {
   identify?: string
   type: 'submit' | 'reset' | 'button'

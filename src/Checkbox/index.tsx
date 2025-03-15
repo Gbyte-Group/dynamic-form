@@ -1,6 +1,4 @@
 import type { IField } from '../types'
-import './index.css'
-
 export interface CheckboxProps extends IField {
   description: string
 }

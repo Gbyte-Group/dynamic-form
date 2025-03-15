@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import type { IField } from '../types'
-import './index.css'
 
 export interface SelectProps extends IField {
   options: {

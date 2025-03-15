@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react'
 import Row, { type RowProps } from '../Row'
-import './index.css'
-import FormProvider from '../FormProvider'
 
 export interface FormProps {
   gap: number

@@ -4,6 +4,7 @@ import { Account, Email, NotLogin, Password } from './Column.stories'
 import type { ColumnProps } from '../src/Column'
 import { Platform } from './Select.stories'
 import type { SelectProps } from '../src/Select'
+import '../src/index.css'
 
 const meta: Meta<typeof Row> = {
   title: 'Example/Row',

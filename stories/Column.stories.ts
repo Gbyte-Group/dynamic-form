@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Column from '../src/Column'
+import '../src/index.css'
 
 const meta: Meta<typeof Column> = {
   title: 'Example/Column',
