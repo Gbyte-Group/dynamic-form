@@ -1,12 +1,13 @@
 {
   "name": "@gbyte/dynamic-form",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./index.css": "./dist/index.css"
   },
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
