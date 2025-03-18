@@ -6,6 +6,7 @@ export interface RowProps extends ILayout {
   id: string
   gap: number
   columns: ColumnProps[]
+  CustomColumns?: typeof Column
 }
 
 export default function Row(props: RowProps) {
@@ -17,11 +18,15 @@ export default function Row(props: RowProps) {
     '--gdf_row_flex-direction': props.direction,
   } as React.CSSProperties
 
+  const CustomColumns = props.CustomColumns
+
   return (
     <div className='gdf_component_row' style={vars}>
       {
         props.columns.map(column => (
-          <Column {...column} key={column.id} />
+          CustomColumns
+            ? <CustomColumns {...column} key={column.id} />
+            : <Column {...column} key={column.id} />
         ))
       }
     </div>

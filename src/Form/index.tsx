@@ -1,15 +1,53 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Row, { type RowProps } from '../Row'
 
-export interface FormProps {
+export interface FormProps extends React.PropsWithChildren {
   gap: number
   rows: RowProps[]
   onChange?: (data: Record<string, string[]>) => void
   onInput?: (input: HTMLElement, data: Record<string, string[]>) => void
   onSubmit?: (submitter: HTMLButtonElement, data: Record<string, string[]>) => void
+  CustomRow?: typeof Row
+  CustomColumn?: RowProps['CustomColumns']
 }
 
-export default function Form({ onChange, onInput, onSubmit, rows, gap }: FormProps) {
+const FORM_PLACEHOLDER_DISPLAY_NAME = "GbyteFormPlaceholder"
+
+const Slot = {
+  [FORM_PLACEHOLDER_DISPLAY_NAME]() {
+    return null
+  }
+}
+
+Form.Placeholder = Slot[FORM_PLACEHOLDER_DISPLAY_NAME]
+
+function replacePlaceholder(children: React.ReactNode, options?: React.ReactNode): React.ReactNode {
+  if (!options) return children
+
+  return React.Children.map(children, child => {
+    if (!React.isValidElement(child)) return child // 确保 child 是 ReactElement
+
+    // 识别 Form.Placeholder
+    if (child.type === Form.Placeholder || (typeof child.type === 'function' && child.type.name === FORM_PLACEHOLDER_DISPLAY_NAME)) {
+      return options
+    }
+
+    // @ts-ignore
+    if (child.props?.children) {
+      return React.cloneElement(
+        child,
+        { ...child.props },
+        // @ts-ignore
+        replacePlaceholder(child.props?.children, options))
+    }
+
+    return child
+  })
+}
+
+
+
+export default function Form({ onChange, onInput, onSubmit, rows, gap, CustomRow, CustomColumn, children }: FormProps) {
 
   const form = useRef<HTMLFormElement>(null)
 
@@ -63,11 +101,15 @@ export default function Form({ onChange, onInput, onSubmit, rows, gap }: FormPro
     }
   }, [onChange, onInput, onSubmit])
 
+  const options = rows.map((row) => (
+    CustomRow ?
+      <CustomRow CustomColumns={CustomColumn} {...row} key={row.id} />
+      : <Row CustomColumns={CustomColumn} {...row} key={row.id} />
+  ))
+
   return (
     <form ref={form} className='gdf_component_form' style={vars}>
-      {rows.map((row) => (
-        <Row {...row} key={row.id} />
-      ))}
+      {replacePlaceholder(children, options)}
     </form>
   )
 }

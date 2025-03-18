@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { AccountRow, LoginRow, PasswordRow } from '../Row.stories'
 import type { RowProps } from '../../src/Row'
-import CustomForm from './CustomForm'
+import CustomLayout from './CustomLayout'
 import '../../src/index.css'
 
-const meta: Meta<typeof CustomForm> = {
-  title: 'Example/CustomForm',
-  component: CustomForm,
+const meta: Meta<typeof CustomLayout> = {
+  title: 'Example/CustomLayout',
+  component: CustomLayout,
   parameters: {
     layout: 'centered',
   },
