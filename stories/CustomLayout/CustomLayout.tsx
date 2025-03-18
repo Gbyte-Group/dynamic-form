@@ -1,7 +1,15 @@
 import React from 'react'
-import { FormProvider, Form as RawForm, type FormProps } from '../../src'
+import { FormProvider, Form as RawForm, useRegisterComponent, type FormProps } from '../../src'
 
 function CustomForm(props: FormProps) {
+  useRegisterComponent('input', props => {
+    return (
+      <div>
+        {props.name}
+      </div>
+    )
+  })
+
   return (
     <div>
       <div>Page Header</div>
