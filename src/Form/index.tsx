@@ -9,6 +9,7 @@ export interface FormProps extends React.PropsWithChildren {
   onSubmit?: (submitter: HTMLButtonElement, data: Record<string, string[]>) => void
   CustomRow?: typeof Row
   CustomColumn?: RowProps['CustomColumns']
+  [key: string]: unknown
 }
 
 const FORM_PLACEHOLDER_DISPLAY_NAME = "GbyteFormPlaceholder"
@@ -47,12 +48,15 @@ function replacePlaceholder(children: React.ReactNode, options?: React.ReactNode
 
 
 
-export default function Form({ onChange, onInput, onSubmit, rows, gap, CustomRow, CustomColumn, children }: FormProps) {
+export default function Form({ onChange, onInput, onSubmit, rows, gap, CustomRow, CustomColumn, children, ...props }: FormProps) {
 
   const form = useRef<HTMLFormElement>(null)
 
+  const varProps = typeof props.style === 'object' ? props.style : {}
+
   const vars = {
-    '--gdf_component_form_gap': gap
+    '--gdf_component_form_gap': gap,
+    ...varProps
   } as React.CSSProperties
 
   useEffect(() => {
@@ -108,7 +112,7 @@ export default function Form({ onChange, onInput, onSubmit, rows, gap, CustomRow
   ))
 
   return (
-    <form ref={form} className='gdf_component_form' style={vars}>
+    <form ref={form} {...props} className={`${props?.className ?? ''} gdf_component_form`} style={vars}>
       {replacePlaceholder(children, options)}
     </form>
   )
