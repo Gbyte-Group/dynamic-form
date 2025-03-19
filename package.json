@@ -1,7 +1,9 @@
 {
   "name": "@gbyte/dynamic-form",
-  "version": "0.0.8",
+  "description": "Dynamically generate forms with configurable rules for React.js.",
+  "version": "0.0.9",
   "type": "module",
+  "license": "MIT",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -52,8 +54,25 @@
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gbyte-Group/dynamic-form.git"
+  },
+  "homepage": "https://github.com/Gbyte-Group/dynamic-form#readme",
+  "bugs": {
+    "url": "https://github.com/Gbyte-Group/dynamic-form/issues"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "keywords": [
+    "react",
+    "form",
+    "dynamic form",
+    "rslib",
+    "react form",
+    "custom form",
+    "dynamic react form"
+  ]
 }
