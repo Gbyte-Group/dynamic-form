@@ -4,6 +4,7 @@ import checkbox from '../Checkbox'
 import icon from '../Icon'
 import input from '../Input'
 import select from '../Select'
+import empty from '../Empty'
 
 const Components = {
   checkbox,
@@ -13,16 +14,27 @@ const Components = {
   select
 }
 
-export type registerComponent = <K extends keyof typeof Components, Component extends typeof Components[K]>(field: K, component: Component) => void
 
-export type formContext = {
-  components: typeof Components
-  registerComponent: registerComponent
+// biome-ignore lint/suspicious/noExplicitAny: <no know props>
+export type Components = Record<string, React.FC<any>>
+export type RegisterEmpty = (component: React.FC<unknown>) => void
+export type RegisterComponent = <K extends keyof typeof Components, Component extends typeof Components[K]>(field: K, component: Component) => void
+export type RegisterCustomComponent = (field: string, component: React.FC<unknown>) => void
+
+export type FormContext = {
+  components: Components
+  empty: React.FC<unknown>,
+  registerEmpty: RegisterEmpty
+  registerComponent: RegisterComponent,
+  registerCustomComponent: RegisterCustomComponent
 }
 
-export const formProviderContext = createContext<formContext>({
+export const formProviderContext = createContext<FormContext>({
   components: Components,
-  registerComponent: () => {}
+  empty,
+  registerEmpty: () => {},
+  registerComponent: () => {},
+  registerCustomComponent: () => {}
 })
 
 type ComponentStruct<
@@ -37,9 +49,10 @@ export type ComponentType = ComponentStruct<typeof Components>
 
 export default function FormProvider({ children }: PropsWithChildren) {
 
-  const [components, updateComponent] = useState(Components)
+  const [components, updateComponent] = useState<Components>(Components)
+  const [emptyComponent, updateEmptyComponent] = useState<React.FC<unknown>>(empty)
 
-  const registerComponent: registerComponent = (field, component) => {
+  const registerComponent: RegisterComponent = (field, component) => {
     updateComponent(components => {
       if (components[field] === component) return components
 
@@ -47,8 +60,25 @@ export default function FormProvider({ children }: PropsWithChildren) {
     })
   }
 
+  const registerCustomComponent: RegisterCustomComponent = (field, component) => {
+    updateComponent(components => {
+      if (components[field] === component) return components
+      return { ...components, [field]: component }
+    })
+  }
+
+  const registerEmpty: RegisterEmpty = component => {
+    updateEmptyComponent(component)
+  }
+
   return (
-    <formProviderContext.Provider value={{ components, registerComponent }}>
+    <formProviderContext.Provider value={{
+      empty: emptyComponent,
+      components,
+      registerComponent,
+      registerEmpty,
+      registerCustomComponent
+    }}>
       {children}
     </formProviderContext.Provider>
   )

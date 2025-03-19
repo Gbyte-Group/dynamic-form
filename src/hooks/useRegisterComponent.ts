@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react'
-import { formProviderContext, type registerComponent } from '../FormProvider'
+import { formProviderContext, type RegisterCustomComponent } from '../FormProvider'
 
-export const useRegisterComponent: registerComponent = (field, component) => {
-  const { registerComponent } = useContext(formProviderContext)
+export const useRegisterComponent: RegisterCustomComponent = (field, component) => {
+  const { registerCustomComponent } = useContext(formProviderContext)
 
   useEffect(() => {
-    registerComponent(field, component)
-  }, [component, field, registerComponent])
+    registerCustomComponent(field, component)
+  }, [component, field, registerCustomComponent])
 }

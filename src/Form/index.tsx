@@ -26,9 +26,9 @@ function replacePlaceholder(children: React.ReactNode, options?: React.ReactNode
   if (!options) return children
 
   return React.Children.map(children, child => {
-    if (!React.isValidElement(child)) return child // 确保 child 是 ReactElement
+    if (!React.isValidElement(child)) return child
 
-    // 识别 Form.Placeholder
+    // Form.Placeholder
     if (child.type === Form.Placeholder || (typeof child.type === 'function' && child.type.name === FORM_PLACEHOLDER_DISPLAY_NAME)) {
       return options
     }

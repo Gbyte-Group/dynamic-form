@@ -6,19 +6,34 @@ import Input, { type InputProps } from './Input'
 import Select, { type SelectProps } from './Select'
 import Row, { type RowProps } from './Row'
 import { useRegisterComponent } from './hooks/useRegisterComponent'
-import FormProvider, { type registerComponent, type ComponentType } from './FormProvider'
+import FormProvider from './FormProvider'
+import type { ComponentType, Components, RegisterComponent, RegisterCustomComponent, RegisterEmpty, FormContext } from './FormProvider'
 export * as types from './types'
 
-export type { CheckboxProps, ColumnProps, FormProps, IconProps, InputProps, RowProps, registerComponent, ComponentType, SelectProps }
+export type {
+  RowProps,
+  FormProps,
+  IconProps,
+  InputProps,
+  Components,
+  FormContext,
+  ColumnProps,
+  SelectProps,
+  CheckboxProps,
+  ComponentType,
+  RegisterEmpty,
+  RegisterComponent,
+  RegisterCustomComponent,
+}
 
 export {
-  Checkbox,
-  Column,
+  Row,
   Form,
   Icon,
   Input,
-  Row,
-  FormProvider,
   Select,
+  Column,
+  Checkbox,
+  FormProvider,
   useRegisterComponent
 }
